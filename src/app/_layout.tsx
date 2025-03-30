@@ -8,6 +8,7 @@ export default function Layout() {
 
       {/* Outras telas */}
       <Stack.Screen name="new-game" options={{ headerShown: false }} />
+      <Stack.Screen name="show-techs" options={{ headerShown: false }} />
     </Stack>
   );
 }

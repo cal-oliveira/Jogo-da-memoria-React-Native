@@ -62,7 +62,7 @@ export default function Game({ initialGameComplete = false }) {
     }
   };
 
-  // Verificação de vitória
+  // Verifica se o jogo acabou (todos os pares virados)
   useEffect(() => {
     const unmatchedCards = cards.filter((card) => !card.matched);
     if (unmatchedCards.length === 0 && cards.length > 0) {
