@@ -1,11 +1,13 @@
 import { StyleSheet, View } from "react-native";
 import { startGame } from "../scripts";
 import Card, { CardProps } from "../components/card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import GameOver from "../components/gamer-over";
 
-export default function Game() {
+export default function Game({ initialGameComplete = false }) {
   const [cards, setCards] = useState(startGame());
   const [flippedIndices, setFlippedIndices] = useState<number[]>([]);
+  const [gameComplete, setGameComplete] = useState(initialGameComplete);
   const [moves, setMoves] = useState(0);
   const [disabled, setDisabled] = useState(false);
 
@@ -60,18 +62,13 @@ export default function Game() {
     }
   };
 
-  const cardsteste = [
-    {
-      id: "1",
-      icon: "bootstrap",
-      flipped: true,
-    },
-    {
-      id: "2",
-      icon: "react",
-      flipped: true,
-    },
-  ];
+  // Verificação de vitória
+  useEffect(() => {
+    const unmatchedCards = cards.filter((card) => !card.matched);
+    if (unmatchedCards.length === 0 && cards.length > 0) {
+      setGameComplete(true);
+    }
+  }, [cards]);
 
   return (
     <View style={styles.container}>
@@ -88,6 +85,7 @@ export default function Game() {
             />
           );
         })}
+        {gameComplete && <GameOver />}
       </View>
     </View>
   );

@@ -2,6 +2,7 @@ import { techs } from "./consts";
 
 let cards = null;
 
+/* Logica do jogo */
 startGame();
 
 export function startGame() {
@@ -45,13 +46,13 @@ function createpairFromTech(tech: string) {
       id: createIdWithTech(tech),
       icon: tech,
       flipped: false,
-      matched: false, // Inicialize como false
+      matched: false,
     },
     {
       id: createIdWithTech(tech),
       icon: tech,
       flipped: false,
-      matched: false, // Inicialize como false
+      matched: false,
     },
   ];
 }
