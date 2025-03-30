@@ -1,5 +1,11 @@
 import { useRouter } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { startGame } from "../scripts";
 
 export default function HomeScreen() {
@@ -16,6 +22,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle={"light-content"} />
       <View style={styles.subContainer}>
         <Text style={styles.logoGame}>{"Jogo da Memória </>"}</Text>
 
