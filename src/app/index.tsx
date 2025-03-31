@@ -7,11 +7,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { startGame } from "../scripts";
 
 export default function HomeScreen() {
   const router = useRouter();
-  /* const cards = startGame(); */
 
   function newGame() {
     router.navigate("/new-game");
