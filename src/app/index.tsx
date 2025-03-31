@@ -1,5 +1,6 @@
 import { useRouter } from "expo-router";
 import {
+  Linking,
   StatusBar,
   StyleSheet,
   Text,
@@ -10,7 +11,7 @@ import { startGame } from "../scripts";
 
 export default function HomeScreen() {
   const router = useRouter();
-  const cards = startGame();
+  /* const cards = startGame(); */
 
   function newGame() {
     router.navigate("/new-game");
@@ -18,6 +19,12 @@ export default function HomeScreen() {
 
   function showTechs() {
     router.navigate("/show-techs");
+  }
+
+  function goToLinkedin(url: string) {
+    Linking.openURL(url).catch((err) =>
+      console.error("Erro ao abrir URL:", err)
+    );
   }
 
   return (
@@ -35,6 +42,19 @@ export default function HomeScreen() {
             <Text style={styles.showTechsText}>Ver Techs</Text>
           </TouchableOpacity>
         </View>
+      </View>
+
+      <View style={styles.developedContainer}>
+        <TouchableOpacity
+          onPress={() =>
+            goToLinkedin("https://www.linkedin.com/in/calebe-b-oliveira/")
+          }
+        >
+          <Text style={styles.developedText}>
+            Developed by
+            <Text style={styles.devName}> Calebe Oliveira</Text>
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -63,9 +83,9 @@ const styles = StyleSheet.create({
     fontSize: 38,
     fontWeight: "bold",
     color: "#ddd",
-    textShadowColor: "rgba(0, 0, 0, 0.75)", // Cor da sombra
-    textShadowOffset: { width: 10, height: 10 }, // Posição da sombra
-    textShadowRadius: 4, // Desfoque da sombra
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 10, height: 10 },
+    textShadowRadius: 4,
   },
 
   newGameButton: {
@@ -99,5 +119,21 @@ const styles = StyleSheet.create({
     color: "#ddd",
     fontSize: 16,
     fontWeight: "bold",
+  },
+
+  developedContainer: {
+    position: "absolute",
+    bottom: 30,
+  },
+
+  developedText: {
+    color: "#ddd",
+    fontWeight: 200,
+    fontSize: 12,
+  },
+
+  devName: {
+    color: "#05c3ff",
+    fontWeight: 700,
   },
 });
