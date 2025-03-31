@@ -6,6 +6,19 @@ Jogo da Memória onde as casrtas são tecnologias web (html, css, javascript e e
 
 **Front-end:** React Native, Expo, TypeScript, Android Studio
 
+## Cartas (Techs)
+
+HTML  
+CSS  
+JavaScript  
+React  
+Jquery  
+BootStrap  
+Node  
+Mongo  
+Electron  
+Firebase
+
 ## Screenshots
 
 ![App Screenshot](https://raw.githubusercontent.com/cal-oliveira/Jogo-da-memoria-React-Native/refs/heads/main/screenshots/screen1.png)
